@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Trading Signal Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0b0e14;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: #141824;
+      border: 1px solid #232938;
+      border-radius: 20px;
+      padding: 24px;
+      width: 100%;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .header-title {
+      font-size: 14px;
+      color: #8a94a6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .pair-name {
+      font-size: 22px;
+      font-weight: bold;
+      color: #38bdf8;
+      margin-bottom: 20px;
+    }
+
+    /* Bouton principal du Signal */
+    .signal-box {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+      background: radial-gradient(circle, #ef4444 0%, #991b1b 100%);
+      transition: all 0.3s ease;
+    }
+
+    .signal-box.buy {
+      background: radial-gradient(circle, #22c55e 0%, #15803d 100%);
+      box-shadow: 0 0 25px rgba(34, 197, 94, 0.4);
+    }
+
+    .signal-icon {
+      font-size: 36px;
+      margin-bottom: 4px;
+    }
+
+    .signal-text {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    /* Indicateurs secondaires */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: #1d2333;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #2d3548;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #8a94a6;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 16px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    /* Bouton d'action */
+    .btn-action {
+      width: 100%;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-action:active {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header-title">Signal en direct</div>
+    <div class="pair-name" id="pair">EUR/USD</div>
+
+    <!-- Icône / Résultat du Signal -->
+    <div class="signal-box" id="signalBox">
+      <div class="signal-icon" id="signalIcon">↘</div>
+      <div class="signal-text" id="signalText">SELL</div>
+    </div>
+
+    <!-- Métriques -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Force du Signal</div>
+        <div class="stat-value" id="strength">85%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Expiration</div>
+        <div class="stat-value" id="timer">1 MIN</div>
+      </div>
+    </div>
+
+    <button class="btn-action" onclick="analyserMarche()">Changer de Paire / Analyser</button>
+  </div>
+
+</body>
+</html>
