@@ -1,0 +1,27 @@
+{
+  "name": "profit-pro",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PROFIT PRO - Neon trading signal PWA (scaffold)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^10.12.16",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.14.1"
+  },
+  "devDependencies": {
+    "vite": "^5.1.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite-plugin-pwa": "^1.2.0",
+    "typescript": "5.2.2",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "@types/node": "20.11.0",
+    "@types/react-router-dom": "^5.3.3"
+  }
+}
